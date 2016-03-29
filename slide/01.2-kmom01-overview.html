@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kursintroduktion phpmvc</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="css/tomorrow.css">
+<script src="js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" class="center" data-markdown type="text/html">
+![Me sida](http://dbwebb.se/image/snap/phpmvc-me.png)
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#phpmvc
+##kmom01
+###PHP-baserade och MVC-inspirerade ramverk
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+##Kom igång och översikt av kmom01
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Uppgift
+
+* Använd Anax MVC. Gör me-sida. Skapa en byline.
+* Sidornas innehåll skall skrivas i Markdown.
+* Skapa din egna header, footer och navbar för webbplatsen.
+* Stöd "snygga länkar".
+* Ändra style och logga så webbplatsen blir lite mer “personlig”.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fokus!
+##Vad krävs för att klara uppgiften?
+
+* Se hur man gör i artikeln "Bygg en me-sida med Anax-MVC".
+* Läs bakgrunden till Anax MVC i artikeln "Anax som MVC-ramverk".
+* Läs resten för att introducera koncepten.
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Repetera
+
+* Bygger vidare på htmlphp och oophp.
+* [Kan du det här?](http://dbwebb.se/phpmvc#forkunskaper)
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Låt oss kika på läsanvisningarna
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#PHP the right way
+
+* Läs under hela kursen.
+* En sammanfattning om hur pro skriver PHP-kod, och vilka verktyg som används.
+* [www.phptherightway.com](http://www.phptherightway.com/).
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Principer &amp; filosofier
+
+* Code reuse.
+* Separation of concerns.
+* DRY, Don’t repeat yourself.
+* KISS, Keep it simple, stupid.
+* YAGNI, You aren’t gonna need it.
+* POGE, Principle of good enough.
+* Technical debt.
+* SOLID, five basic principles.
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#De mest populära PHP-ramverken?
+
+* Best PHP Frameworks for 2014:
+    * Laravel, Phalcon, Symfony2
+
+* Inför kursen hämtade jag inspiration från:
+    * Laravel, Symphony, FuelPHP (en spinoff från CodeIgniter), Yii, CakePHP
+    * Under kursen blev det fokus på Phalcon
+
+* Best PHP Frameworks for 2016:
+    * Laravel, Symphony, Yii, Zend?
+
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+![Jämför PHP ramverk 2016](img/2016-compare-frameworks.png)
+</script>
+
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#PHP-baserade och MVC-inspirerade ramverk
+
+* Vad betyder det?
+* En artikel om grunderna.
+* Vad innehåller ett ramverk?
+* Varför jobba med ramverk?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Objektorienterade konstruktioner för PHP
+
+* Namespace
+* Autoloader PSR-4
+* Interface
+* Trait
+* ...
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#PHP-FIG
+
+* [PSR](http://www.php-fig.org/psr/), främst 1, 2, 4
+
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Anax MVC
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Anax MVC
+
+* Anax-oophp uppgraderad
+* Innehåller ett ramverks beståndsdelar
+* Se hur koden hänger ihop
+* Bygg med ramverket
+* Bygg ut ramverket?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Forka och clona
+
+* [Anax MVC på GitHub](https://github.com/mosbth/Anax-MVC)
+* [Anax MVC på studservern](http://www.student.bth.se/~mosstud/kod-exempel/Anax-MVC-2.0.4/webroot/dice_app.php)
+* Forka, clona forken.
+* Kan ta emot uppdateringar som görs i Anax MVC.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodgenomgång av Anax MVC
+
+* Översikt av kodstrukturen
+* Temat renderar svaret
+* En request i dice_app.php
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodgenomgång...
+
+* ANAX_APP eller ANAX_INSTALL
+* Ramverkets tjänster $di, ($app)
+* $di injectas i varje klass ($this)
+* Routes
+* Vyer
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Markdown
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fokus!
+##Vad krävs för att klara uppgiften?
+
+* Se hur man gör i artikeln "Bygg en me-sida med Anax-MVC".
+* Läs bakgrunden till Anax MVC i artikeln "Anax som MVC-ramverk".
+* Läs resten för att introducera koncepten.
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Frågor på det?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="js/mithril.min.js"></script>
+<script src="js/mithril-slideshow.js"></script>
+</html>
