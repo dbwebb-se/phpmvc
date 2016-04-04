@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>Kursintroduktion phpmvc</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="css/tomorrow.css">
+<script src="js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" class="center" data-markdown type="text/html">
+![Kommentarer](http://dbwebb.se/image/snap/anax-mvc-comments.png)
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#phpmvc
+##kmom02
+###Kontroller och modeller
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+##Översikt av kmom01
+
+* Uppgiften, fokus
+* Hålla sig uppdaterad med Anax MVC, issues, pull request, remote.
+* Composer/Packagist
+* MVC arkitektur
+* Kika in i Anax MVC
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Uppgift
+
+* Bygg vidare på det kommentarssystem du fick i guiden ovan.
+* En godtycklig kommentar kan editeras genom att klicka på dess id.
+* En enskild kommentar skall kunna raderas.
+* Styla kommentarerna så att de ser lite mer ut som i Disqus (eller Stackoverflow).
+* Visa att ditt kommentarsystem fungerar på två separata sidor, där varje sida har sitt eget kommentarsflöde.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fokus!
+##Vad krävs för att klara uppgiften?
+
+* Se hur man gör i artikeln "Utöka Anax MVC med kommentarer och pröva pakethantering med PHP".
+* Läs bakgrunden till MVC läsanvisningar.
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Anax-MVC och GitHub
+
+* Forka och clona
+* Add Anax-MVC as a new remote
+* Pull requests
+* Issues
+* Feature branch
+* Commandline &amp; GUI
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Git keep updated
+
+```
+git remote add upstream https://github.com/mosbth/Anax-MVC.git
+git remote -v
+git fetch upstream
+git diff masterbranch remotebranch
+git merge master upstream/master
+```
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Git feature branch
+
+* Skapa en issue
+* Tagga innan &amp; efter
+* Gör feature i egen branch.
+* Pusha till GitHub.
+* Merga med master.
+* Ta bort feature branch.
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Git merge conflict
+
+* Trigga fram en merge conflict
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#[Semantic versioning 2.0.0](http://semver.org/)
+
+* Given a version number MAJOR.MINOR.PATCH, increment the:
+
+* MAJOR - incompatible API changes
+* MINOR - add functionality in a backwards-compatible manner
+* PATCH - backwards-compatible bug fixes.
+
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Packagist
+
+* [mosbth/cimage](https://packagist.org/packages/mos/cimage)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Composer
+
+* Variant att installera "Kör PHP (composer, phpunit) direkt från Windows terminal (Command Prompt/Cygwin)"
+* composer require mos/cimage
+* Kika på mos/cimage composer.json
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#MVC
+
+* Låt oss googla en bild på MVC
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Anax MVC och MVC
+
+* Kika i source
+* Hur anropar routern dispatchern?
+* Kika på [comment exempel](http://www.student.bth.se/~mosstud/kod-exempel/Anax-MVC-comment/).
+* Hur initiera controller
+* Forward kontra direkt anrop
+* Router kontra dispatcher
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Övrigt
+
+* Hur &amp; var starta sessionen?
+* Initialize metod i controllern
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Frågor på det?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="js/mithril.min.js"></script>
+<script src="js/mithril-slideshow.js"></script>
+</html>
