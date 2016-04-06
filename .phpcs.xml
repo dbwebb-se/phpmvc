@@ -18,6 +18,7 @@
 
         <!-- Below may be removed for a rougher check -->
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace" />
+        <exclude name="Squiz.WhiteSpace.SpacingAfterOpen" />
     </rule>
     
 </ruleset>
