@@ -14,7 +14,6 @@
     <arg name="warning-severity" value="0"/>
 
     <rule ref="PSR2">
-        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace" />
         <exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace" />
 
         <!-- Below may be removed for a rougher check -->
