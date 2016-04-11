@@ -31,9 +31,10 @@ Feel free to help builing up the repository with more content suited for trainin
 History
 -------------------
 
-v0.0.0x (2015-10-01)
+v0.1.0 (2016-04-06)
 
-* Started work in october 2015, planned release autumn 2016.
+* Updated to make validation pass of Anax MVC.
+* Started work in October 2015, planned release autumn 2016.
 
 
 
