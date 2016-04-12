@@ -33,7 +33,118 @@
 
 <script data-role="slide" data-markdown type="text/html">
 #Agenda
-##Översikt av kmom03
+
+* SEO
+* Microformats
+* Översikt av kmom03
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#SEO
+
+* [Search Engine Optimization Starter Guide - Google](http://static.googleusercontent.com/media/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf)
+* [Moz Beginners Guide To SEO](https://moz.com/beginners-guide-to-seo)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kom igång med SEO
+
+* Skaffa publik domän och site.
+* Registrera den på Google Analytics och Google Webmaster samt Bings motsvarighet.
+* Bestäm vilka sökord du tycker är viktiga och följ upp kontinuerlig.
+* Samla länkar från sociala tjänster.
+* Publicera RSS-flöde.
+* Skapa innehåll.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Att underlätta SEO
+
+```
+<time pubdate datetime="$published">$published</time>
+```
+
+```
+<adress class="author">$byStr <a rel="author" href="/author/">$author</a>.</adress>
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Microdata [W3C Spec](https://www.w3.org/TR/microdata/)
+
+Sometimes, it is desirable to annotate content with specific machine-readable labels, e.g. to allow generic scripts to provide services that are customised to the page, or to enable content from a variety of cooperating authors to be processed by a single script in a consistent manner.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Microdata example
+
+```
+<div itemscope>
+ <p>My name is <span itemprop="name">Elizabeth</span>.</p>
+</div>
+
+<div itemscope>
+ <p>My name is <span itemprop="name">Daniel</span>.</p>
+</div>
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Microdata [schema.org](https://schema.org/docs/gs.html)
+
+<h1>Avatar</h1> tells the browser to display the text string "Avatar" in a heading 1 format. However, the HTML tag doesn't give any information about what that text string means—"Avatar" could refer to the hugely successful 3D movie, or it could refer to a type of profile picture—and this can make it more difficult for search engines to intelligently display relevant content to a user.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#(Microdata) HTML
+
+```
+<div>
+ <h1>Avatar</h1>
+ <span>Director: James Cameron (born August 16, 1954)</span>
+ <span>Science fiction</span>
+ <a href="../movies/avatar-theatrical-trailer.html">Trailer</a>
+</div>
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Microdata within HTML
+
+```
+<div itemscope itemtype ="http://schema.org/Movie">
+  <h1 itemprop="name">Avatar</h1>
+  <div itemprop="director" itemscope itemtype="http://schema.org/Person">
+  Director: <span itemprop="name">James Cameron</span> (born <span itemprop="birthDate">August 16, 1954</span>)
+  </div>
+  <span itemprop="genre">Science fiction</span>
+  <a href="../movies/avatar-theatrical-trailer.html" itemprop="trailer">Trailer</a>
+</div>
+```
+
 </script>
 
 
