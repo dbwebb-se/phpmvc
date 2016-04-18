@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>phpmvc</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="css/tomorrow.css">
+<script src="js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" class="center" data-markdown type="text/html">
+#phpmvc
+##kmom04
+###Databasdrivna modeller
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Översikt av kmom04
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Scaffolding
+
+* Automatgenerera kod för CRUD mot en databastabell.
+* Ofta terminalverktyg.
+* Frontend med formulär.
+* Backend med SQL till databasen.
+* Generera kod för kontroller och modeller.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#ORM
+
+* Object Relational Mapping.
+* Att passa in tabeller och relationer i objekt.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Database abstraction layer
+
+* CDatabase ovanpå PDO
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Query abstraction layer
+
+* TSQLQueryBuilder för att skapa SQL-satser
+* Anropa metoder istället för att skriva SQL-kod
+* Ett lager oavsett databas?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Table prefix
+
+```
+$db->setTablePrefix('mos_');
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#DROP TABLE
+
+```
+$sql = "DROP TABLE mos_test;";
+$db->execute($sql);
+ 
+$sql = "DROP TABLE IF EXISTS mos_test;";
+$db->execute($sql);
+ 
+$db->dropTableIfExists('test')
+   ->execute();
+ 
+$db->dropTable('test')
+   ->execute();
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#CREATE TABLE
+
+```
+$sql = "
+CREATE TABLE mos_test
+(
+    id integer primary key not null,
+    age integer,
+    text varchar(20)
+)
+;";
+$db->execute($sql);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#CREATE TABLE...
+
+```
+$db->createTable(
+    'test',
+    [
+        'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
+        'age'   => ['integer'],
+        'text'  => ['varchar(20)'],
+    ]
+);
+ 
+$db->execute();
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#SELECT
+
+```
+$sql = "
+SELECT
+    *
+FROM mos_test
+ORDER BY id ASC
+;";
+$db->execute($sql);
+ 
+$db->select()
+    ->from('test')
+    ->orderBy("id ASC")
+;
+$db->execute();
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Modeller
+
+* "Model, in modern MVC design pattern, is NOT a class or object. Model is a layer."
+* Domain objects, Storage abstractions, Services
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Databasdrivna modeller
+
+* Samla gemensam kod i en basklass.
+* Organisera och fördela koden.
+* Refactoring.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kontroller kontra modeller
+
+* Kontroller använder modellerna, eller modell lagret för att utföra saker eller hämta information.
+* "Fat models and skinny controllers".
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Formulär
+
+* CForm.
+* Ultimat som en klass i modell lagret.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#[CForm exempel](http://www.student.bth.se/~mosstud/kod-exempel/cform/webroot/test/elements-html401.php)
+
+* [Källkod](http://www.student.bth.se/~mosstud/kod-exempel/source.php?path=cform/webroot/test/elements-html401.php)
+* Se kopplingen till CFMElementsHTML401 och CFormModel.
+
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Frågor på det?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="js/mithril.min.js"></script>
+<script src="js/mithril-slideshow.js"></script>
+</html>
