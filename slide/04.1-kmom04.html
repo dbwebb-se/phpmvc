@@ -57,6 +57,46 @@
 
 
 <script data-role="slide" data-markdown type="text/html">
+#Active record pattern
+
+* En rad i databasen mappar mot ett objekt i minnet.
+* Innehåller metoder för att jobba på objeketet och dess data.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+![Active record](img/active-record-pattern.png)
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Data mapper
+
+* Som active record men lyft ut databas detaljer till egen klass.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+![Data mapper](img/data-mapper-pattern.png)
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#ORM
+
+* Fördelar och nackdelar?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
 #Database abstraction layer
 
 * CDatabase ovanpå PDO
@@ -165,6 +205,15 @@ $db->select()
 ;
 $db->execute();
 ```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#CDatabase, TSQLQueryBuilder
+
+* Skapa dina egna lösningar på Active Recorder och/eller Data mapper.
 
 </script>
 
