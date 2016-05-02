@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="sv">
+<meta charset="utf-8" />
+<title>phpmvc</title>
+
+<!-- Mithril HTML Slideshow styles -->
+<link href="css/mithril-slideshow.css" rel="stylesheet" />
+
+<!-- Code formatting using highlight.js -->
+<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="css/tomorrow.css">
+<script src="js/highlight.pack.js"></script>
+
+<!-- Text formatting using Markdown through showdown.js -->
+<script src="js/showdown.min.js"></script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" class="center" data-markdown type="text/html">
+#phpmvc
+##kmom06
+###Verktyg och CI
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Agenda
+
+* Översikt av kmom06
+
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+<img src="http://dbwebb.se/image/snap/travis.png" width="1024" />
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+<img src="http://dbwebb.se/image/snap/scrutinizr.png" width="1024" />
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Att testa eller inte testa
+
+* Måste jag testa min kod?
+* Enhetstest
+* Funktionstest
+* Systemtest (testmiljö, produktionsmiljö)
+* Verifikationstest
+* Automated tests, nightly builds
+* Regression test
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Fokus på test
+
+* TDD, testdriven utveckling
+* Skriv testfallet först, koden sedan
+* Inte committa utan att koden har testcase
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Enhetstestning
+
+* Unit testing
+* phpunit
+
+</script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#En testklass
+
+<pre data-code="class"></pre>
+</script>
+
+<script id="class" data-role="code" data-language="php" type="text/html">
+namespace Mos\TextFilter;
+/**
+ * A testclass
+ *
+ */
+class CTextFilterTest extends \PHPUnit_Framework_TestCase
+{
+</script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Assertions
+
+<pre data-code="assert"></pre>
+</script>
+
+<script id="assert" data-role="code" data-language="php" type="text/html">
+$text = "A<!--more-->B";
+$exp  = "A";
+$res = $filter->parse($text, []);
+$this->assertEquals($exp, $res->excerpt, "More did not match");
+</script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Assertions
+
+<pre data-code="assert1"></pre>
+</script>
+
+<script id="assert1" data-role="code" data-language="php" type="text/html">
+/**
+ * Test.
+ */
+public function testHasFilter()
+{
+    $filter = new CTextFilter();
+    $res = $filter->hasFilter("markdown");
+    $this->assertTrue($res, "Missmatch has filters.");
+}
+</script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Exceptions
+
+<pre data-code="assert2"></pre>
+</script>
+
+<script id="assert2" data-role="code" data-language="php" type="text/html">
+/**
+ * Test.
+ *
+ * @expectedException /Mos/TextFilter/Exception
+ */
+public function testHasFilterException()
+{
+    $filter = new CTextFilter();
+    $filter->hasFilter("NOT EXISTING");
+}
+</script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Provider...
+
+<pre data-code="provider1"></pre>
+</script>
+
+<script id="provider1" data-role="code" data-language="php" type="text/html">
+/**
+ * Test.
+ *
+ * @dataProvider providerTextWithLinks
+ */
+public function testAddBaseurlToRelativeLinks($baseurl, $text, $exp)
+{
+    $filter = new CTextFilter();
+    $callback = function($url, $baseurl) {
+        return rtrim("$baseurl/$url", "/");
+    };
+    $res = $filter->addBaseurlToRelativeLinks($text, $baseurl, $callback);
+    $this->assertEquals($exp, $res, "Relative links mssmatch");
+}
+</script>
+
+
+
+<!-- Here comes the slides in order -->
+<script data-role="slide" data-markdown type="text/html">
+#Provider
+
+<pre data-code="provider"></pre>
+</script>
+
+<script id="provider" data-role="code" data-language="php" type="text/html">
+/**
+ * Provider for TextWithLinks
+ */
+public function providerTextWithLinks()
+{
+    $baseurl = "doc";
+    return [
+        [
+            $baseurl,
+            "<a href=\"\">text</a>",
+            "<a href=\"$baseurl\">text</a>",
+        ],
+        [
+            $baseurl,
+            "<a href=\"something\">text</a>",
+            "<a href=\"$baseurl/something\">text</a>",
+        ],
+    ];
+}
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Mer termer i unit test
+
+* Set up och tear down
+* Mocka, mockobjekt
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodtäckning
+
+* Code coverage
+* Kika på CTextFilter och code coverage
+* Om man inte kan testa en del av koden?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Statisk kodanalys
+
+* Hur bra är koden?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodformattering
+
+* phpcs
+* (phpcbf)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Kodanalys
+
+* phpmd
+* Hur hantera rekommendationer?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Rätt eller fel
+
+* False positives (wolf, wolf)
+* False negatives (the prisoner is guilty)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Presumption of innocence
+
+> "It is better that ten guilty persons escape than that one innocent suffer"
+
+* false negatives (a guilty person is acquitted and escapes) are far preferable to false positive (an innocent person is convicted and suffers)?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Mer kodanalys
+
+* PHP Copy/Paste Detector phpcpd
+* PHPDepend metrics of internal and external code dependencies
+* PHPLoc with statistics
+* Security Advisory Checker (in composer dependencies)
+* (PHPDoc)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Hur jobba med alla verktygen?
+
+* Med någon form av build skript (task runner) som utför jobbet
+* [Make](https://github.com/mosbth/ctextfilter/blob/master/Makefile)
+* Phing, Gulp, Grunt, Ant...
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Hur automatisera tester?
+
+* Låt någon checka ut ditt repo och köra ditt build script.
+* [Travis](https://travis-ci.org/mosbth/ctextfilter) [.travis.yml](https://github.com/mosbth/ctextfilter/blob/master/.travis.yml)
+* [Scrutinizer](https://scrutinizer-ci.com/g/mosbth/ctextfilter/) [.scrutinizer.yml](https://github.com/mosbth/ctextfilter/blob/master/.scrutinizer.yml)
+* [SensioLabsInsight](https://insight.sensiolabs.com/projects/d6da7502-0d81-4bd1-973e-b914ed1e9d9d)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+#Varför?
+
+* Kodkvalitet, skriva bästa koden
+* Pengar och tid, spara
+* Utvecklare är av olika kvalitet, likt deras kod, lika bra att ta det säkra för det osäkra och testa dem
+
+</script>
+
+
+
+<script data-role="slide" class="center" data-markdown type="text/html">
+#Frågor på det?
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+</script>
+
+
+
+<!-- include essential js-script -->
+<script src="js/mithril.min.js"></script>
+<script src="js/mithril-slideshow.js"></script>
+</html>
