@@ -2,7 +2,9 @@ PHP framworks (phpmvc)
 ===================
 
 [![Join the chat at https://gitter.im/mosbth/phpmvc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mosbth/phpmvc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/mosbth/phpmvc.svg?branch=master)](https://travis-ci.org/mosbth/phpmvc)
+[![Build Status](https://travis-ci.org/dbwebb-se/phpmvc.svg?branch=master)](https://travis-ci.org/dbwebb-se/phpmvc)
+[![CircleCI](https://circleci.com/gh/dbwebb-se/phpmvc.svg?style=svg)](https://circleci.com/gh/dbwebb-se/phpmvc)
+
 
 Course material for course, aimed at a swedish target audience being software engineering / computer science students at University level. 
 
@@ -24,12 +26,18 @@ This is a co-effort of several people using freely available documentation and t
 
 For contributors, see the commit history and the issues.
 
-Feel free to help builing up the repository with more content suited for training and education.
+Feel free to help building up the repository with more content suited for training and education.
 
 
 
 History
 -------------------
+
+v1.0.0 (2016-08-17)
+
+* Enable local dev environment.
+* Enable test suite on travis and circle.
+
 
 v0.1.0 (2016-04-06)
 
